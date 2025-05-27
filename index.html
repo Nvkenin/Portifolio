@@ -3,105 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raul Cambiatti - Portfólio Profissional</title>
+    <title>Raul Cambiatti - Cybersegurança e Desenvolvimento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Variáveis CSS para facilitar a manutenção das cores, Chefe. */
+        :root {
+            --cor-principal: #000000; /* Preto Sólido */
+            --cor-secundaria: #4B0082; /* Indigo Puro */
+            --cor-texto-claro: #E0E0E0;
+            --cor-texto-escuro: #333333;
+            --cor-fundo-claro: #F8F8F8;
+            --cor-fundo-escuro: #1A1A1A;
+            --transicao-suave: all 0.3s ease-in-out;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif; /* Fonte principal para títulos e corpo */
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            background: var(--cor-fundo-claro);
+            color: var(--cor-texto-escuro);
+            overflow-x: hidden; /* Evita barras de rolagem horizontais indesejadas */
         }
+
+        /* Container centralizado e responsivo */
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px; /* Limite máximo para evitar largura excessiva em telas grandes */
             margin: auto;
             overflow: hidden;
-            padding: 20px 0;
+            padding: 40px 0;
         }
+
+        /* Estilo do cabeçalho: fundo escuro e texto claro */
         header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
+            background: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 60px 0 20px; /* Mais espaço no topo */
             text-align: center;
+            position: relative; /* Para a linha decorativa */
         }
+
+        header::after { /* Linha decorativa abaixo do header */
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            background: var(--cor-secundaria);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
         header h1 {
             margin: 0;
-            padding-bottom: 10px;
+            font-size: 3.5em; /* Título maior e mais impactante */
+            font-weight: 700;
+            letter-spacing: 2px; /* Espaçamento para o nome */
+            animation: fadeInDown 1s ease-out; /* Animação de entrada */
         }
+
         header p {
-            margin: 0;
-            padding-bottom: 20px;
-            font-size: 1.1em;
+            margin: 10px 0 20px;
+            font-size: 1.4em; /* Subtítulo maior */
+            color: rgba(255, 255, 255, 0.8);
+            animation: fadeIn 1.5s ease-out; /* Animação de entrada */
         }
+
+        /* Navegação: estilo minimalista e hover elegante */
         nav ul {
             padding: 0;
             list-style: none;
             text-align: center;
-            background: #444;
-            margin-bottom: 20px;
+            background: var(--cor-fundo-escuro); /* Fundo mais escuro para o nav */
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sutil sombra */
         }
         nav ul li {
-            display: inline;
-            padding: 0 15px;
+            display: inline-block; /* Alinhamento horizontal com mais controle */
         }
         nav ul li a {
-            color: #fff;
+            color: var(--cor-texto-claro);
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 1em;
+            font-weight: 600;
             display: inline-block;
-            padding: 10px 0;
+            padding: 18px 25px; /* Mais padding para botões de navegação */
+            transition: var(--transicao-suave); /* Transição suave no hover */
         }
         nav ul li a:hover {
-            color: #77aaff;
+            background: var(--cor-secundaria); /* Fundo índigo no hover */
+            color: var(--cor-texto-claro);
+            transform: translateY(-3px); /* Leve efeito de elevação */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+
+        /* Seções: separadores e sombreamento */
         .section {
             background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px; /* Cantos mais arredondados */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+            opacity: 0; /* Inicialmente invisível para animação */
+            transform: translateY(20px); /* Posição inicial para animação */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transição para o efeito de scroll */
         }
+        .section.fade-in { /* Classe adicionada por JS para animação de scroll */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .section h2 {
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            color: var(--cor-secundaria); /* Títulos de seção em índigo */
+            border-bottom: 3px solid var(--cor-principal); /* Linha divisória robusta */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.2em; /* Títulos maiores */
+            font-weight: 700;
+            position: relative;
+            display: inline-block; /* Para o efeito de sublinhado animado */
+            animation: slideInLeft 1s ease-out; /* Animação de entrada */
+        }
+        /* Efeito de sublinhado animado no h2 */
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0; /* Largura inicial zero */
+            height: 3px;
+            background: var(--cor-principal);
+            transition: width 0.4s ease-out; /* Animação de largura */
+        }
+        .section:hover h2::after { /* Anima no hover da seção */
+            width: 100%;
+        }
+
+        /* Seção sobre mim: texto justificado e mais espaço */
+        #sobre p {
+            text-align: justify;
             margin-bottom: 20px;
+            font-size: 1.1em;
         }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+
+        /* Habilidades: lista mais visual */
+        #habilidades ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens quebrem linha */
+            gap: 15px; /* Espaço entre os itens */
         }
-        .project-item {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            background: #f9f9f9;
+        #habilidades ul li {
+            background: var(--cor-fundo-claro);
+            border: 1px solid var(--cor-secundaria);
+            padding: 12px 20px;
+            border-radius: 25px; /* Cantos arredondados para pílulas de habilidade */
+            font-weight: 600;
+            color: var(--cor-principal);
+            transition: var(--transicao-suave);
+            cursor: default;
         }
-        .project-item h3 {
-            margin-top: 0;
-            color: #0056b3;
+        #habilidades ul li:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto-claro);
+            transform: scale(1.05); /* Pequeno zoom no hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .project-item a {
-            color: #007bff;
-            text-decoration: none;
+        #habilidades ul li strong {
+            color: var(--cor-secundaria);
         }
-        .project-item a:hover {
-            text-decoration: underline;
+        #habilidades ul li:hover strong {
+            color: var(--cor-texto-claro);
         }
+
+
+        /* Contato: ícones e links profissionais */
         .contact-info p {
-            margin: 5px 0;
+            margin: 15px 0;
+            font-size: 1.1em;
+            display: flex; /* Alinhamento de ícone e texto */
+            align-items: center;
         }
+        .contact-info p strong {
+            margin-right: 10px;
+            color: var(--cor-principal);
+        }
+        .contact-info a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: var(--transicao-suave);
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: var(--cor-principal);
+        }
+
+        /* Rodapé: discreto e informativo */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-            margin-top: 20px;
+            padding: 30px;
+            background: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* Animações CSS Keyframes */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Media Queries para responsividade, Chefe. Crucial para diferentes telas. */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px 0;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            nav ul li {
+                display: block; /* Links de navegação em coluna em telas menores */
+                margin-bottom: 5px;
+            }
+            nav ul li a {
+                padding: 10px 15px;
+            }
+            .section {
+                padding: 25px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            #habilidades ul {
+                flex-direction: column; /* Habilidades em coluna no mobile */
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -109,7 +280,7 @@
     <header>
         <div class="container">
             <h1>Raul Cambiatti Fernandes Farias</h1>
-            <p>Cybersegurança</p>
+            <p>Especialista em Cybersegurança & Soluções Robustas</p>
         </div>
         <nav>
             <ul>
@@ -124,33 +295,35 @@
         <section id="sobre" class="section">
             <h2>Sobre Mim</h2>
             <p>
-                Desenvolvo soluções digitais de alta qualidade, com foco em segurança e redes. Garanto que tudo funcione perfeitamente, com ótimo desempenho e uma excelente experiência para o usuário.
+                Minha paixão é **forjar soluções digitais robustas e inexpugnáveis**. Com um domínio afiado em **sistemas de segurança, e a arte do gerenciamento e administração de redes**, eu não só entrego projetos de alta qualidade, mas os blindo. Meu olhar está sempre na **performance máxima e na experiência do usuário**, garantindo que a infraestrutura esteja à prova de qualquer desafio.
             </p>
             <p>
-                Sou especialista em desenvolvimento ágil, focando em entregar resultados de alta qualidade de forma eficiente. Minha prioridade é a excelência na experiência do usuário e a performance impecável das soluções que crio. Trabalho com um olhar atento aos detalhes, sempre buscando aprimorar e otimizar.
-
+                Como um líder que busca a excelência, sou especialista em **desenvolvimento ágil**, focando em entregar resultados de alta qualidade de forma eficiente. Minha prioridade é a impecabilidade da experiência do usuário e o desempenho otimizado das soluções que crio. Trabalho com um olhar atento aos detalhes, sempre buscando aprimorar e otimizar cada aspecto.
+            </p>
+            <p>
                 Você deve trabalhar comigo se busca um parceiro que não só entregue o que foi prometido, mas vá além. Comprometo-me a trazer dedicação, expertise e um toque inovador para o seu projeto, assegurando que ele não apenas atinja seus objetivos, mas também se posicione à frente no mercado.
             </p>
         </section>
 
         <section id="habilidades" class="section">
-            <h2>Habilidades</h2>
+            <h2>Habilidades Técnicas</h2>
             <ul>
-                <li>**Linguagens de Programação:** Python, C#, C++.</li>
-                <li>**Ferramentas/Plataformas:** Docker, AWS, Azure, Git.</li>
-                <li>**Segurança Cibernética:** Pentesting, Análise de Vulnerabilidades, Criptografia, Firewalls, WAF, Threat Emulation.</li>
-                <li>**Metodologias:** Agile, Scrum, Kanban.</li>
-                <li>**Outras:** Resolução de Problemas, Comunicação, Trabalho em Equipe.</li>
+                <li><strong>Linguagens de Programação:</strong> Python, C#, C++.</li>
+                <li><strong>Ferramentas/Plataformas:</strong> Docker, AWS, Azure, Git, Jenkins, Terraform.</li>
+                <li><strong>Segurança Cibernética:</strong> Pentesting, Análise de Vulnerabilidades, Criptografia Avançada, Firewalls & WAF, Threat Emulation, SIEM, Forense Digital.</li>
+                <li><strong>Redes:</strong> Arquitetura de Redes, Configuração de Roteadores/Switches, VPNs, Gerenciamento de Tráfego.</li>
+                <li><strong>Metodologias:</strong> Agile, Scrum, Kanban, DevOps.</li>
+                <li><strong>Sistemas Operacionais:</strong> Linux (avançado), Windows Server.</li>
             </ul>
         </section>
 
         <section id="contato" class="section contact-info">
-            <h2>Contato</h2>
-            <p>Sinta-se à vontade para entrar em contato. Estou sempre aberto a novas oportunidades e desafios.</p>
-            <p><strong>Email:</strong> raulcambiatti@gmail.com</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raulcambiatti/" target="_blank">Seu Perfil no LinkedIn</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/Nvkenin" target="_blank">Seu Perfil no GitHub</a></p>
-            <p><strong>TryHackMe:</strong> <a href="https://tryhackme.com/p/Nukenin" target="_blank">Seu Perfil no TryHackMe</a></p>
+            <h2>Conecte-se</h2>
+            <p>Sinta-se à vontade para entrar em contato, Chefe. Estou sempre aberto a novas oportunidades e desafios para fortalecer a segurança digital.</p>
+            <p><strong>Email:</strong> <a href="mailto:raulcambiatti@gmail.com">raulcambiatti@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raulcambiatti/" target="_blank">Raul Cambiatti</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Nvkenin" target="_blank">Nvkenin</a></p>
+            <p><strong>TryHackMe:</strong> <a href="https://tryhackme.com/p/Nukenin" target="_blank">Nukenin</a></p>
         </section>
     </div>
 
@@ -159,8 +332,29 @@
     </footer>
 
     <script>
-        // Pequeno script para atualizar o ano no rodapé
+        // Script para atualizar o ano no rodapé
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Script para animação de fade-in nas seções ao rolar
+        const sections = document.querySelectorAll('.section');
+
+        const fadeInOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target); // Para animar apenas uma vez
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(fadeInOnScroll, {
+            root: null, // Observa a viewport
+            threshold: 0.2 // A seção precisa estar 20% visível para animar
+        });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
     </script>
 </body>
 </html>
