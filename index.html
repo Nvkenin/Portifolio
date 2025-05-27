@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raul Cambiatti - Portfólio Profissional</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        header p {
+            margin: 0;
+            padding-bottom: 20px;
+            font-size: 1.1em;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            background: #444;
+            margin-bottom: 20px;
+        }
+        nav ul li {
+            display: inline;
+            padding: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            display: inline-block;
+            padding: 10px 0;
+        }
+        nav ul li a:hover {
+            color: #77aaff;
+        }
+        .section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .project-item h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .project-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Raul Cambiatti Fernandes Farias</h1>
+            <p>Cybersegurança</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="sobre" class="section">
+            <h2>Sobre Mim</h2>
+            <p>
+                Desenvolvo soluções digitais de alta qualidade, com foco em segurança e redes. Garanto que tudo funcione perfeitamente, com ótimo desempenho e uma excelente experiência para o usuário.
+            </p>
+            <p>
+                Sou especialista em desenvolvimento ágil, focando em entregar resultados de alta qualidade de forma eficiente. Minha prioridade é a excelência na experiência do usuário e a performance impecável das soluções que crio. Trabalho com um olhar atento aos detalhes, sempre buscando aprimorar e otimizar.
+
+                Você deve trabalhar comigo se busca um parceiro que não só entregue o que foi prometido, mas vá além. Comprometo-me a trazer dedicação, expertise e um toque inovador para o seu projeto, assegurando que ele não apenas atinja seus objetivos, mas também se posicione à frente no mercado.
+            </p>
+        </section>
+
+        <section id="habilidades" class="section">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>**Linguagens de Programação:** Python, C#, C++.</li>
+                <li>**Ferramentas/Plataformas:** Docker, AWS, Azure, Git.</li>
+                <li>**Segurança Cibernética:** Pentesting, Análise de Vulnerabilidades, Criptografia, Firewalls, WAF, Threat Emulation.</li>
+                <li>**Metodologias:** Agile, Scrum, Kanban.</li>
+                <li>**Outras:** Resolução de Problemas, Comunicação, Trabalho em Equipe.</li>
+            </ul>
+        </section>
+
+        <section id="contato" class="section contact-info">
+            <h2>Contato</h2>
+            <p>Sinta-se à vontade para entrar em contato. Estou sempre aberto a novas oportunidades e desafios.</p>
+            <p><strong>Email:</strong> raulcambiatti@gmail.com</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raulcambiatti/" target="_blank">Seu Perfil no LinkedIn</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Nvkenin" target="_blank">Seu Perfil no GitHub</a></p>
+            <p><strong>TryHackMe:</strong> <a href="https://tryhackme.com/p/Nukenin" target="_blank">Seu Perfil no TryHackMe</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Raul Cambiatti. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Pequeno script para atualizar o ano no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
