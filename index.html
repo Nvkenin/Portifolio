@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raul Cambiatti - Cybersegurança de Elite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* Variáveis CSS para facilitar a manutenção das cores, Chefe. */
+        /* Variáveis CSS */
         :root {
-            --cor-primaria: #0a0a0a; /* Um preto um pouco mais suave */
-            --cor-secundaria: #4B0082; /* Indigo Puro */
-            --cor-destaque: #8A2BE2; /* Azul Violeta */
-            --cor-destaque-hover: #9932CC; /* Orquídea Escuro */
-            --cor-texto-claro: #F0F0F0; /* Quase branco */
-            --cor-texto-escuro: #2c2c2c; /* Cinza escuro */
-            --cor-fundo-claro: #F4F6F9; /* Cinza claro azulado */
-            --cor-fundo-escuro: #1a1a1a; /* Preto mais escuro */
+            --cor-primaria: #0a0a0a;
+            --cor-secundaria: #4B0082;
+            --cor-destaque: #8A2BE2;
+            --cor-destaque-hover: #9932CC;
+            --cor-texto-claro: #F0F0F0;
+            --cor-texto-escuro: #2c2c2c;
+            --cor-fundo-claro: #F4F6F9;
+            --cor-fundo-escuro: #1a1a1a;
             --sombra-leve: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --sombra-densa: 0 10px 35px rgba(75, 0, 130, 0.3); /* Sombra com cor */
+            --sombra-densa: 0 10px 35px rgba(75, 0, 130, 0.3);
             --transicao-rapida: all 0.25s ease-in-out;
-            --transicao-suave: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de bezier para suavidade */
+            --transicao-suave: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Reset e Base */
@@ -31,16 +31,16 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Rolagem suave global */
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.7; /* Ligeiramente mais espaçado */
-            background: linear-gradient(135deg, var(--cor-fundo-claro) 0%, #e9ebee 100%); /* Gradiente sutil */
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--cor-fundo-claro) 0%, #e9ebee 100%);
             color: var(--cor-texto-escuro);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Melhor renderização de fontes */
+            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
@@ -49,24 +49,23 @@
             width: 90%;
             max-width: 1300px;
             margin: auto;
-            padding: 80px 15px; /* Mais padding vertical, menos horizontal */
+            padding: 80px 15px;
             position: relative;
-            z-index: 1;
+            z-index: 1; /* Para estar acima do fundo do body, se houver elementos de fundo complexos */
         }
 
-        /* Header (Cabeçalho) */
+        /* Header */
         header {
             background: var(--cor-primaria);
             color: var(--cor-texto-claro);
             padding: 100px 0 50px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            position: relative; /* Para o ::before */
+            overflow: hidden; /* Para o ::before não vazar */
             box-shadow: var(--sombra-densa);
             border-bottom: 5px solid var(--cor-destaque);
         }
 
-        /* Efeito de background abstrato no header */
         header::before {
             content: '';
             position: absolute;
@@ -79,31 +78,31 @@
                 radial-gradient(circle at 80% 70%, var(--cor-destaque), transparent 40%);
             opacity: 0.3;
             animation: pulseBg 10s infinite alternate ease-in-out;
-            z-index: 0;
+            z-index: 0; /* Atrás do conteúdo do header */
         }
 
         header h1 {
             margin: 0;
-            font-size: 4.5em; /* Aumentado */
+            font-size: 4.5em;
             font-weight: 700;
-            letter-spacing: 4px; /* Aumentado */
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--cor-texto-claro);
             font-family: 'Orbitron', sans-serif;
             animation: textGlow 2s infinite alternate ease-in-out, fadeInDown 1.2s ease-out forwards;
-            position: relative;
-            z-index: 1;
+            position: relative; /* Para z-index funcionar */
+            z-index: 1; /* Acima do ::before */
         }
 
         header p {
             margin: 20px 0 30px;
-            font-size: 1.7em; /* Aumentado */
+            font-size: 1.7em;
             color: var(--cor-texto-claro);
             opacity: 0.85;
             font-weight: 300;
-            animation: fadeIn 1.8s ease-out 0.3s forwards; /* Atraso */
-            position: relative;
-            z-index: 1;
+            animation: fadeIn 1.8s ease-out 0.3s forwards;
+            position: relative; /* Para z-index funcionar */
+            z-index: 1; /* Acima do ::before */
         }
 
         /* Navegação */
@@ -112,7 +111,7 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 1000; /* Acima de todo o conteúdo da página */
             border-bottom: 3px solid var(--cor-destaque);
             animation: slideInTop 0.8s ease-out forwards;
         }
@@ -132,16 +131,16 @@
             font-size: 1.1em;
             font-weight: 600;
             display: inline-block;
-            padding: 22px 35px; /* Aumentado */
+            padding: 22px 35px;
             transition: var(--transicao-suave);
-            position: relative;
-            overflow: hidden;
+            position: relative; /* Para o ::before */
+            overflow: hidden; /* Para o ::before */
             letter-spacing: 1px;
         }
 
         nav ul li a i {
             margin-right: 10px;
-            transition: transform 0.3s ease-out; /* Transição para ícone */
+            transition: transform 0.3s ease-out;
         }
 
         nav ul li a::before {
@@ -158,4 +157,489 @@
 
         nav ul li a:hover {
             color: var(--cor-destaque-hover);
-            background-color: rgba(255, 255
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        nav ul li a:hover::before {
+            width: 70%;
+        }
+
+        nav ul li a:hover i {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /* Seções */
+        .section {
+            background: #fff;
+            padding: 60px;
+            margin-bottom: 60px;
+            border-radius: 20px;
+            box-shadow: var(--sombra-leve);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.4s ease-out;
+            border-left: 7px solid var(--cor-secundaria);
+            position: relative; /* Para z-index se necessário e contexto de posicionamento para filhos */
+            overflow: hidden; /* Para que animações internas não quebrem o layout se saírem dos limites */
+        }
+
+        .section:hover {
+             box-shadow: 0 15px 40px rgba(75, 0, 130, 0.15);
+             transform: translateY(-5px) scale(1.01); /* Adicionado scale para mais dinamismo */
+        }
+
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            color: var(--cor-secundaria);
+            border-bottom: 3px solid var(--cor-primaria);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            font-weight: 700;
+            position: relative; /* Para o ::after */
+            display: inline-block; /* Para o ::after se ajustar ao texto */
+            animation: slideInLeft 1s ease-out forwards;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px; /* Logo abaixo da borda */
+            width: 0;
+            height: 3px;
+            background: var(--cor-destaque);
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .section.fade-in h2::after {
+            width: 100%;
+        }
+
+        /* Sobre Mim */
+        #sobre p {
+            text-align: justify;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            color: #444;
+        }
+
+        /* Habilidades */
+        #habilidades ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        #habilidades ul li {
+            background: var(--cor-fundo-claro);
+            border: 2px solid var(--cor-secundaria);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--cor-primaria); /* Cor inicial do texto */
+            transition: var(--transicao-suave);
+            cursor: pointer;
+            position: relative; /* Necessário para o z-index do conteúdo e do ::before */
+            overflow: hidden; /* Para o ::before não vazar durante a animação */
+            box-shadow: var(--sombra-leve);
+            display: flex;
+            align-items: center;
+            z-index: 1; /* Garante que o li esteja acima de elementos de fundo da section, se houver */
+        }
+
+        #habilidades ul li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%; /* Começa fora da tela à esquerda */
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--cor-secundaria), var(--cor-destaque));
+            transition: left 0.4s ease-out;
+            z-index: -1; /* Coloca o fundo gradiente atrás do conteúdo do li */
+        }
+
+        #habilidades ul li:hover::before {
+            left: 0; /* Anima o fundo para preencher o li */
+        }
+
+        /* Estilos para o conteúdo dentro do LI para garantir que fiquem acima do ::before e mudem de cor */
+        #habilidades ul li > * { /* Seleciona filhos diretos: <i> e <strong> */
+            position: relative; /* Garante que fiquem no fluxo normal acima do ::before */
+            z-index: 1; /* Explicitamente acima do ::before se necessário (geralmente não é com ::before z-index -1) */
+            transition: color 0.4s ease-out; /* Transição suave da cor do texto */
+        }
+
+
+        #habilidades ul li:hover, /* Cor base do texto no hover */
+        #habilidades ul li:hover strong, /* Cor do strong no hover */
+        #habilidades ul li:hover i { /* Cor do ícone no hover */
+            color: var(--cor-texto-claro);
+        }
+
+         #habilidades ul li:hover { /* Outras transformações no li */
+            transform: translateY(-10px) scale(1.05) rotate(1deg);
+            box-shadow: var(--sombra-densa);
+            border-color: var(--cor-destaque);
+        }
+
+
+        #habilidades ul li strong {
+            color: var(--cor-secundaria); /* Cor inicial do strong */
+            margin-right: 8px;
+            /* A transição de cor já está coberta por #habilidades ul li > * ou #habilidades ul li:hover strong */
+        }
+
+        #habilidades ul li i {
+            color: var(--cor-destaque); /* Cor inicial do ícone */
+            margin-right: 12px;
+            font-size: 1.2em;
+            transition-property: transform, color; /* Especifica propriedades para transição */
+            transition-duration: 0.3s, 0.4s;
+            transition-timing-function: ease-out, ease-out;
+        }
+
+        #habilidades ul li:hover i {
+            /* color: var(--cor-texto-claro); // Já coberto */
+            transform: scale(1.2) rotate(10deg);
+        }
+
+
+        /* Contato */
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 25px 0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-texto-escuro);
+        }
+
+        .contact-info p strong {
+            margin-right: 15px;
+            color: var(--cor-primaria);
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: var(--transicao-suave);
+            font-weight: 600;
+            position: relative; /* Para o ::after */
+            padding: 5px 0;
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cor-destaque-hover);
+            transition: width 0.4s ease-out;
+        }
+
+        .contact-info a:hover {
+            color: var(--cor-destaque-hover);
+            text-shadow: 0 0 5px var(--cor-destaque-hover);
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            font-size: 1.5em;
+            color: var(--cor-secundaria);
+            transition: transform 0.3s ease-out, color 0.3s ease-out;
+        }
+        .contact-info p:hover i {
+            transform: scale(1.2);
+            color: var(--cor-destaque-hover);
+        }
+
+
+        /* Portfólio/Projetos */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding-top: 30px;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: var(--sombra-leve);
+            overflow: hidden; /* Para bordas arredondadas e conteúdo */
+            transition: var(--transicao-suave);
+            border: 2px solid transparent; /* Para animação da borda no hover */
+            opacity: 0; /* Para animação de entrada */
+            animation: cardFadeIn 0.8s ease-out forwards;
+            display: flex;
+            flex-direction: column; /* Para alinhar conteúdo interno */
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: var(--sombra-densa);
+            border-color: var(--cor-destaque);
+        }
+
+        .portfolio-item h3 {
+            color: var(--cor-secundaria);
+            padding: 20px 25px 10px;
+            margin-top: 0;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+
+        .portfolio-item p {
+            padding: 0 25px 20px;
+            font-size: 1em;
+            color: #555;
+            flex-grow: 1; /* Para que o parágrafo ocupe o espaço disponível */
+        }
+
+        .portfolio-item .tech-stack {
+            padding: 10px 25px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .portfolio-item .tech-stack span {
+            background: var(--cor-fundo-claro);
+            color: var(--cor-secundaria);
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-family: 'Roboto Mono', monospace;
+            border: 1px solid var(--cor-secundaria);
+            transition: var(--transicao-rapida);
+        }
+
+        .portfolio-item:hover .tech-stack span {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto-claro);
+        }
+
+        .portfolio-item .project-links {
+            padding: 15px 25px 25px; /* Adicionado padding-top */
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-top: 1px solid #eee;
+            margin-top: auto; /* Empurra para o final do card */
+        }
+
+        .portfolio-item .project-links a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transicao-rapida);
+            font-size: 1.1em;
+        }
+
+        .portfolio-item .project-links a:hover {
+            color: var(--cor-destaque-hover);
+            transform: scale(1.1);
+        }
+
+        .portfolio-item .project-links i {
+            margin-left: 8px;
+        }
+
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: var(--cor-primaria);
+            color: #aaa;
+            margin-top: 80px;
+            font-size: 1em;
+            position: relative; /* Para o ::before */
+            overflow: hidden; /* Para o ::before */
+            border-top: 5px solid var(--cor-secundaria);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            animation: rotateBg 20s linear infinite;
+            z-index: 0; /* Atrás do conteúdo do footer */
+        }
+
+        footer p {
+            margin: 0;
+            position: relative; /* Para z-index funcionar */
+            z-index: 1; /* Acima do ::before */
+        }
+
+        /* Animações Keyframes */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInTop { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        @keyframes pulseBg { 0% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.4; } 100% { transform: scale(1); opacity: 0.3; } }
+        @keyframes textGlow { from { text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(138, 43, 226, 0.3); } to { text-shadow: 0 0 20px rgba(138, 43, 226, 0.8), 0 0 30px rgba(138, 43, 226, 0.5); } }
+        @keyframes cardFadeIn { from { opacity: 0; transform: translateY(30px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes rotateBg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* Media Queries */
+        @media (max-width: 992px) { header h1 { font-size: 3.5em; } header p { font-size: 1.5em; } .section h2 { font-size: 2.2em; } .section { padding: 40px; margin-bottom: 40px; } nav ul li a { padding: 18px 25px; font-size: 1em; } #habilidades ul li { padding: 12px 22px; } .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;} }
+        @media (max-width: 768px) { .container { width: 95%; padding: 40px 10px; } header { padding: 80px 0 30px; } header h1 { font-size: 2.8em; letter-spacing: 1px; } header p { font-size: 1.2em; } nav ul { flex-direction: column; align-items: stretch; } nav ul li a { padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; } nav ul li:last-child a { border-bottom: none; } nav ul li a::before { content: none; } .section { padding: 30px; margin-bottom: 30px; } .section h2 { font-size: 2em; } #habilidades ul { justify-content: center; } .portfolio-grid { grid-template-columns: 1fr; } .contact-info p { flex-direction: column; text-align: center;} .contact-info p i { margin-bottom: 10px; margin-right: 0;} }
+        @media (max-width: 480px) { header h1 { font-size: 2em; } header p { font-size: 1em; } .section h2 { font-size: 1.6em; } .section { padding: 25px 20px; } #habilidades ul li { font-size: 0.9em; padding: 10px 18px; } .contact-info p { font-size: 1.1em;} }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Raul Cambiatti</h1>
+            <p>Cybersegurança | Defesa, Arquitetura e Gerenciamento de Redes</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre"><i class="fas fa-user-secret"></i> Sobre Mim</a></li>
+            <li><a href="#habilidades"><i class="fas fa-brain"></i> Habilidades</a></li>
+            <li><a href="#projetos"><i class="fas fa-project-diagram"></i> Projetos</a></li>
+            <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="sobre" class="section">
+            <h2>Sobre Mim</h2>
+            <p>
+                Experiência em redes de computadores e foco em cibersegurança.
+            </p>
+            <p>
+                Lidero equipes e projetos com uma mentalidade ágil, focando na entrega de resultados de alta qualidade de forma eficiente e previsível. Minha prioridade é garantir que cada infraestrutura, sistema, não apenas atinja seus objetivos, mas supere as expectativas em termos de segurança e desempenho.
+            </p>
+            <p>
+                Comprometido com a excelência, atuo de forma cooperativa no ambiente de trabalho, sempre empenhado em aprimorar minhas habilidades técnicas e contribuir para soluções eficazes.
+            </p>
+        </section>
+
+        <section id="habilidades" class="section">
+            <h2>Habilidades Técnicas</h2>
+            <ul>
+                <li><i class="fas fa-code"></i><strong>Linguagens:</strong> Python, C#, C++.</li>
+                <li><i class="fas fa-cloud"></i><strong>Ferramentas/Plataformas:</strong> Docker, Kubernetes, AWS, Azure, Git.</li>
+                <li><i class="fas fa-shield-alt"></i><strong>Segurança Cibernética:</strong> Pentesting, Análise de Vulnerabilidades, Criptografia, Firewalls & WAFs, Threat Emulation, Forense Digital.</li>
+                <li><i class="fas fa-network-wired"></i><strong>Redes:</strong> Arquitetura de Redes Distribuídas, Configuração de Roteadores/Switches, VPNs (IPsec/OpenVPN).</li>
+                <li><i class="fas fa-sitemap"></i><strong>Metodologias:</strong> Agile (Scrum/Kanban).</li>
+                <li><i class="fas fa-book"></i><strong>Frameworks:</strong> NIST CSF, ISO/IEC 27001, MITRE ATT&CK, OWASP Top 10, PTES, OSSTMM, Cyber Kill Chain.</li>
+                <li><i class="fas fa-server"></i><strong>Sistemas Operacionais:</strong> Linux , Linux Server, Windows Server (AD/GPO), FreeBSD.</li>
+            </ul>
+        </section>
+
+        <section id="projetos" class="section">
+            <h2>Projetos e Estudos de Caso</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <h3>Hardening de Infraestrutura Crítica</h3>
+                    <p>Implementação de medidas de segurança avançadas em ambiente de produção, reduzindo a superfície de ataque e fortalecendo as defesas contra ataques de ZeroDay. Utilização de criptografia de ponta a ponta e segmentação de rede.</p>
+                    <div class="tech-stack">
+                        <span>Linux Server</span>
+                        <span>Firewalls</span>
+                        <span>IPsec VPN</span>
+                        <span>ISO 27001</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <h3>CTF's</h3>
+                    <p>Participação em diversos Capture The Flag, tanto de instituições privadas (Indra Minsite, Tempest, etc.) quanto em públicas (SENAI, HackersDoBem(Projeto público de cybersec do Brasil)).</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>OWASP Top 10</span>
+                        <span>Cyber Kill Chain</span>
+                        <span>Análise de Vulnerabilidades</span>
+                        <span>Criptografia</span>
+                        <span>Forense Digital</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <h3>Resposta a Incidentes e Forense Digital</h3>
+                    <p>Participação na investigação de um incidente de segurança complexo, isolamento da ameaça e recuperação total do sistema. Utilização de técnicas de forense digital para identificar o vetor de ataque e prevenir futuras ocorrências.</p>
+                    <div class="tech-stack">
+                        <span>Forense Digital</span>
+                        <span>Threat Emulation</span>
+                        <span>MITRE ATT&CK</span>
+                        <span>SIEM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section contact-info">
+            <h2>Conecte-se</h2>
+            <p>Sinta-se à vontade para entrar em contato. Estou sempre aberto a novas oportunidades e desafios.</p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:raulcambiatti@gmail.com">raulcambiatti@gmail.com</a></p>
+            <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raulcambiatti/" target="_blank">Raul Cambiatti</a></p>
+            <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Nvkenin" target="_blank">Nvkenin</a></p>
+            <p><i class="fas fa-terminal"></i> <strong>TryHackMe:</strong> <a href="https://tryhackme.com/p/Nukenin" target="_blank">Nukenin</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Raul Cambiatti. Todos os direitos reservados. Fortificando o ciberespaço.</p>
+    </footer>
+
+    <script>
+        // Script para atualizar o ano no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Script para animação de fade-in nas seções ao rolar
+        const sections = document.querySelectorAll('.section');
+
+        const fadeInOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target); // Para animar apenas uma vez
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(fadeInOnScroll, {
+            root: null, // Observa a viewport
+            threshold: 0.15 // A seção precisa estar 15% visível para animar
+        });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Adiciona um atraso à animação de entrada de cada card de portfólio
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.15}s`;
+        });
+
+    </script>
+</body>
+</html>
