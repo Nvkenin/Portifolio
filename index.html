@@ -5,45 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raul Cambiatti - Cybersegurança de Elite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Variáveis CSS para facilitar a manutenção das cores, Chefe. */
         :root {
-            --cor-primaria: #000000; /* Preto Sólido */
-            --cor-secundaria: #4B0082; /* Indigo Puro, mas agora com um toque de mistério */
-            --cor-destaque: #8A2BE2; /* Azul Violeta, para um brilho extra */
-            --cor-texto-claro: #E0E0E0;
-            --cor-texto-escuro: #333333;
-            --cor-fundo-claro: #F0F2F5; /* Um cinza claro suave */
-            --cor-fundo-escuro: #121212; /* Quase preto, para seções importantes */
-            --sombra-leve: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --sombra-densa: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --transicao-rapida: all 0.2s ease-in-out;
-            --transicao-suave: all 0.4s ease-in-out;
+            --cor-primaria: #0a0a0a; /* Um preto um pouco mais suave */
+            --cor-secundaria: #4B0082; /* Indigo Puro */
+            --cor-destaque: #8A2BE2; /* Azul Violeta */
+            --cor-destaque-hover: #9932CC; /* Orquídea Escuro */
+            --cor-texto-claro: #F0F0F0; /* Quase branco */
+            --cor-texto-escuro: #2c2c2c; /* Cinza escuro */
+            --cor-fundo-claro: #F4F6F9; /* Cinza claro azulado */
+            --cor-fundo-escuro: #1a1a1a; /* Preto mais escuro */
+            --sombra-leve: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --sombra-densa: 0 10px 35px rgba(75, 0, 130, 0.3); /* Sombra com cor */
+            --transicao-rapida: all 0.25s ease-in-out;
+            --transicao-suave: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de bezier para suavidade */
         }
 
         /* Reset e Base */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave global */
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: var(--cor-fundo-claro);
+            line-height: 1.7; /* Ligeiramente mais espaçado */
+            background: linear-gradient(135deg, var(--cor-fundo-claro) 0%, #e9ebee 100%); /* Gradiente sutil */
             color: var(--cor-texto-escuro);
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Rolagem suave para âncoras */
+            -webkit-font-smoothing: antialiased; /* Melhor renderização de fontes */
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Container Centralizado */
         .container {
             width: 90%;
-            max-width: 1300px; /* Um pouco mais largo para conteúdo denso */
+            max-width: 1300px;
             margin: auto;
-            padding: 60px 0; /* Mais padding vertical */
+            padding: 80px 15px; /* Mais padding vertical, menos horizontal */
             position: relative;
             z-index: 1;
         }
@@ -52,11 +58,12 @@
         header {
             background: var(--cor-primaria);
             color: var(--cor-texto-claro);
-            padding: 80px 0 30px;
+            padding: 100px 0 50px;
             text-align: center;
             position: relative;
-            overflow: hidden; /* Para garantir que elementos internos não vazem */
+            overflow: hidden;
             box-shadow: var(--sombra-densa);
+            border-bottom: 5px solid var(--cor-destaque);
         }
 
         /* Efeito de background abstrato no header */
@@ -67,34 +74,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
-            opacity: 0.8;
-            transform: scale(1.1) rotate(5deg); /* Leve transformação */
+            background:
+                radial-gradient(circle at 20% 30%, var(--cor-secundaria), transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--cor-destaque), transparent 40%);
+            opacity: 0.3;
+            animation: pulseBg 10s infinite alternate ease-in-out;
             z-index: 0;
-            animation: bgZoomFade 15s infinite alternate ease-in-out;
         }
 
         header h1 {
             margin: 0;
-            font-size: 4em;
+            font-size: 4.5em; /* Aumentado */
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 4px; /* Aumentado */
             text-transform: uppercase;
             color: var(--cor-texto-claro);
-            font-family: 'Orbitron', sans-serif; /* Fonte futurista para o nome */
-            animation: fadeInDown 1.2s ease-out forwards;
+            font-family: 'Orbitron', sans-serif;
+            animation: textGlow 2s infinite alternate ease-in-out, fadeInDown 1.2s ease-out forwards;
             position: relative;
             z-index: 1;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         header p {
-            margin: 15px 0 25px;
-            font-size: 1.6em;
+            margin: 20px 0 30px;
+            font-size: 1.7em; /* Aumentado */
             color: var(--cor-texto-claro);
-            opacity: 0.9;
+            opacity: 0.85;
             font-weight: 300;
-            animation: fadeIn 1.8s ease-out forwards;
+            animation: fadeIn 1.8s ease-out 0.3s forwards; /* Atraso */
             position: relative;
             z-index: 1;
         }
@@ -102,26 +109,20 @@
         /* Navegação */
         nav {
             background: var(--cor-fundo-escuro);
-            box-shadow: var(--sombra-densa);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
-            z-index: 1000; /* Garante que a navegação fique no topo */
+            z-index: 1000;
             border-bottom: 3px solid var(--cor-destaque);
             animation: slideInTop 0.8s ease-out forwards;
         }
 
         nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             text-align: center;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        nav ul li {
-            display: inline-block;
         }
 
         nav ul li a {
@@ -131,48 +132,62 @@
             font-size: 1.1em;
             font-weight: 600;
             display: inline-block;
-            padding: 20px 30px;
+            padding: 22px 35px; /* Aumentado */
             transition: var(--transicao-suave);
             position: relative;
-            overflow: hidden; /* Para o efeito de sublinhado */
+            overflow: hidden;
+            letter-spacing: 1px;
         }
 
-        /* Efeito de fundo que preenche no hover */
+        nav ul li a i {
+            margin-right: 10px;
+            transition: transform 0.3s ease-out; /* Transição para ícone */
+        }
+
         nav ul li a::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--cor-destaque);
-            transform: translateY(100%);
-            transition: transform 0.3s ease-out;
-            z-index: -1;
-        }
-
-        nav ul li a:hover::before {
-            transform: translateY(0);
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--cor-destaque-hover);
+            transition: all 0.4s ease-out;
+            transform: translateX(-50%);
         }
 
         nav ul li a:hover {
-            color: var(--cor-primaria); /* Texto escuro quando o fundo claro aparece */
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            color: var(--cor-destaque-hover);
+            background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+        }
+
+        nav ul li a:hover::before {
+            width: 70%; /* Linha parcial */
+        }
+
+        nav ul li a:hover i {
+            transform: scale(1.1) rotate(-5deg); /* Ícone animado */
         }
 
         /* Seções */
         .section {
             background: #fff;
-            padding: 50px;
-            margin-bottom: 50px;
-            border-radius: 15px;
+            padding: 60px; /* Aumentado */
+            margin-bottom: 60px; /* Aumentado */
+            border-radius: 20px; /* Mais arredondado */
             box-shadow: var(--sombra-leve);
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-            border-left: 5px solid var(--cor-secundaria); /* Linha lateral decorativa */
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.4s ease-out; /* Adiciona transição de sombra */
+            border-left: 7px solid var(--cor-secundaria);
+            overflow: hidden; /* Garante que os filhos não vazem */
         }
+
+        .section:hover {
+             box-shadow: 0 15px 40px rgba(75, 0, 130, 0.15); /* Sombra mais pronunciada no hover */
+             transform: translateY(-5px); /* Efeito de elevação */
+        }
+
         .section.fade-in {
             opacity: 1;
             transform: translateY(0);
@@ -180,28 +195,29 @@
 
         .section h2 {
             color: var(--cor-secundaria);
-            border-bottom: 4px solid var(--cor-primaria);
-            padding-bottom: 18px;
-            margin-bottom: 35px;
-            font-size: 2.5em;
+            border-bottom: 3px solid var(--cor-primaria); /* Mais sutil */
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2.8em; /* Aumentado */
             font-weight: 700;
             position: relative;
             display: inline-block;
             animation: slideInLeft 1s ease-out forwards;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
-        /* Efeito de sublinhado animado no h2 */
+
         .section h2::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -4px;
+            bottom: -3px; /* Acima da borda original */
             width: 0;
-            height: 4px;
+            height: 3px;
             background: var(--cor-destaque);
-            transition: width 0.5s ease-out;
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transição com 'bounce' */
         }
-        .section.fade-in h2::after { /* Anima no fade-in da seção */
+
+        .section.fade-in h2::after {
             width: 100%;
         }
 
@@ -209,224 +225,263 @@
         #sobre p {
             text-align: justify;
             margin-bottom: 25px;
-            font-size: 1.15em;
-            color: var(--cor-texto-escuro);
+            font-size: 1.2em; /* Aumentado */
+            color: #444; /* Um pouco mais escuro */
         }
 
         /* Habilidades */
         #habilidades ul {
             list-style: none;
-            padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center; /* Centraliza as pílulas */
+            gap: 25px; /* Aumentado */
+            justify-content: center;
         }
+
         #habilidades ul li {
             background: var(--cor-fundo-claro);
             border: 2px solid var(--cor-secundaria);
-            padding: 14px 25px;
-            border-radius: 30px;
+            padding: 15px 30px;
+            border-radius: 50px; /* Pílulas */
             font-weight: 600;
             color: var(--cor-primaria);
             transition: var(--transicao-suave);
-            cursor: default;
+            cursor: pointer; /* Indica interatividade */
             position: relative;
             overflow: hidden;
             box-shadow: var(--sombra-leve);
-            flex-grow: 1; /* Permite que os itens cresçam para preencher o espaço */
-            max-width: fit-content; /* Se ajusta ao conteúdo */
             display: flex;
             align-items: center;
         }
-        /* Efeito de background degradê no hover da habilidade */
+
         #habilidades ul li::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%; /* Começa fora */
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--cor-secundaria), var(--cor-destaque));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease-out;
-            z-index: -1;
+            background: linear-gradient(90deg, var(--cor-secundaria), var(--cor-destaque));
+            transition: left 0.4s ease-out;
+            z-index: 0;
         }
+
         #habilidades ul li:hover::before {
-            transform: scaleX(1);
+            left: 0; /* Desliza para dentro */
         }
+
         #habilidades ul li:hover {
             color: var(--cor-texto-claro);
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px) scale(1.05) rotate(1deg); /* Efeito mais dinâmico */
+            box-shadow: var(--sombra-densa);
             border-color: var(--cor-destaque);
         }
+
+        #habilidades ul li * { /* Garante que o texto fique na frente */
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease-out;
+        }
+        #habilidades ul li:hover * {
+            color: var(--cor-texto-claro);
+        }
+
         #habilidades ul li strong {
             color: var(--cor-secundaria);
-            margin-right: 8px; /* Espaço entre o título e a lista de itens */
+            margin-right: 8px;
         }
-        #habilidades ul li:hover strong {
-            color: var(--cor-texto-claro);
-        }
-        #habilidades ul li i { /* Ícones para as habilidades */
-            margin-right: 10px;
+
+        #habilidades ul li i {
+            margin-right: 12px; /* Aumentado */
             color: var(--cor-destaque);
-            transition: var(--transicao-rapida);
+            font-size: 1.2em; /* Ícones maiores */
+            transition: transform 0.3s ease-out;
         }
+
         #habilidades ul li:hover i {
             color: var(--cor-texto-claro);
-            transform: scale(1.1);
+            transform: scale(1.2) rotate(10deg);
         }
 
         /* Contato */
         .contact-info {
             text-align: center;
         }
+
         .contact-info p {
-            margin: 20px 0;
-            font-size: 1.2em;
+            margin: 25px 0;
+            font-size: 1.3em; /* Aumentado */
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--cor-texto-escuro);
         }
+
         .contact-info p strong {
             margin-right: 15px;
             color: var(--cor-primaria);
             font-size: 1.1em;
         }
+
         .contact-info a {
             color: var(--cor-secundaria);
             text-decoration: none;
             transition: var(--transicao-suave);
             font-weight: 600;
             position: relative;
+            padding: 5px 0;
         }
+
         .contact-info a::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -3px;
+            bottom: 0;
             width: 0;
             height: 2px;
-            background: var(--cor-destaque);
-            transition: width 0.3s ease-out;
+            background: var(--cor-destaque-hover);
+            transition: width 0.4s ease-out;
         }
+
         .contact-info a:hover {
-            color: var(--cor-destaque);
+            color: var(--cor-destaque-hover);
+            text-shadow: 0 0 5px var(--cor-destaque-hover); /* Efeito 'glow' */
         }
+
         .contact-info a:hover::after {
             width: 100%;
         }
+
         .contact-info i {
-            margin-right: 10px;
-            font-size: 1.3em;
+            margin-right: 15px; /* Aumentado */
+            font-size: 1.5em; /* Aumentado */
             color: var(--cor-secundaria);
+            transition: transform 0.3s ease-out, color 0.3s ease-out;
+        }
+        .contact-info p:hover i {
+            transform: scale(1.2);
+            color: var(--cor-destaque-hover);
         }
 
 
         /* Portfólio/Projetos */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Um pouco maior */
+            gap: 40px; /* Aumentado */
+            padding-top: 30px;
         }
 
         .portfolio-item {
-            background: #fdfdfd;
-            border-radius: 10px;
+            background: #fff; /* Fundo branco puro para contraste */
+            border-radius: 15px; /* Aumentado */
             box-shadow: var(--sombra-leve);
             overflow: hidden;
             transition: var(--transicao-suave);
-            cursor: pointer;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent; /* Borda inicial transparente */
+            opacity: 0;
             animation: cardFadeIn 0.8s ease-out forwards;
-            opacity: 0; /* Para a animação individual */
+            display: flex; /* Flexbox para layout interno */
+            flex-direction: column;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-12px) scale(1.03); /* Efeito mais pronunciado */
             box-shadow: var(--sombra-densa);
             border-color: var(--cor-destaque);
         }
 
         .portfolio-item h3 {
-            color: var(--cor-primaria);
-            padding: 15px 20px 0;
+            color: var(--cor-secundaria); /* Usa cor secundária */
+            padding: 20px 25px 10px; /* Aumentado */
             margin-top: 0;
-            font-size: 1.5em;
+            font-size: 1.6em; /* Aumentado */
             font-weight: 700;
         }
 
         .portfolio-item p {
-            padding: 0 20px 15px;
-            font-size: 0.95em;
-            color: var(--cor-texto-escuro);
+            padding: 0 25px 20px;
+            font-size: 1em; /* Ligeiramente maior */
+            color: #555;
+            flex-grow: 1; /* Faz o parágrafo crescer */
         }
 
         .portfolio-item .tech-stack {
-            padding: 10px 20px 20px;
+            padding: 10px 25px 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px; /* Aumentado */
         }
 
         .portfolio-item .tech-stack span {
             background: var(--cor-fundo-claro);
             color: var(--cor-secundaria);
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 5px;
-            font-size: 0.8em;
+            font-size: 0.85em;
             font-family: 'Roboto Mono', monospace;
             border: 1px solid var(--cor-secundaria);
+            transition: var(--transicao-rapida);
+        }
+
+        .portfolio-item:hover .tech-stack span {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto-claro);
         }
 
         .portfolio-item .project-links {
-            padding: 0 20px 20px;
+            padding: 0 25px 25px;
             display: flex;
             justify-content: flex-end;
-            gap: 15px;
+            gap: 20px; /* Aumentado */
+            border-top: 1px solid #eee; /* Linha divisória */
+            margin-top: auto; /* Empurra para baixo */
+            padding-top: 15px;
         }
+
         .portfolio-item .project-links a {
             color: var(--cor-secundaria);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transicao-rapida);
+            font-size: 1.1em;
         }
+
         .portfolio-item .project-links a:hover {
-            color: var(--cor-destaque);
-            transform: translateY(-2px);
+            color: var(--cor-destaque-hover);
+            transform: scale(1.1);
         }
+
         .portfolio-item .project-links i {
-            margin-left: 5px;
+            margin-left: 8px; /* Aumentado */
         }
 
 
         /* Rodapé */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 50px; /* Aumentado */
             background: var(--cor-primaria);
-            color: var(--cor-texto-claro);
-            margin-top: 60px;
-            font-size: 0.95em;
+            color: #aaa; /* Cor mais suave */
+            margin-top: 80px; /* Aumentado */
+            font-size: 1em; /* Aumentado */
             position: relative;
             overflow: hidden;
+            border-top: 5px solid var(--cor-secundaria);
         }
-        /* Efeito de gradiente sutil no rodapé */
+
         footer::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, var(--cor-secundaria) 0%, transparent 100%);
-            opacity: 0.1;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            animation: rotateBg 20s linear infinite;
             z-index: 0;
         }
+
         footer p {
             margin: 0;
             position: relative;
@@ -435,65 +490,82 @@
 
         /* Animações CSS Keyframes */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
         @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
+            from { opacity: 0; transform: translateX(-60px); }
             to { opacity: 1; transform: translateX(0); }
         }
+
         @keyframes slideInTop {
             from { transform: translateY(-100%); }
             to { transform: translateY(0); }
         }
-        @keyframes bgZoomFade {
-            0% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
-            50% { transform: scale(1.05) rotate(0deg); opacity: 0.9; }
-            100% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.3; }
         }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(138, 43, 226, 0.3); }
+            to { text-shadow: 0 0 20px rgba(138, 43, 226, 0.8), 0 0 30px rgba(138, 43, 226, 0.5); }
+        }
+
         @keyframes cardFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
 
         /* Media Queries para responsividade */
         @media (max-width: 992px) {
-            header h1 { font-size: 3.2em; }
-            header p { font-size: 1.4em; }
-            .section h2 { font-size: 2em; }
-            .section { padding: 35px; margin-bottom: 35px; }
-            nav ul li a { padding: 15px 20px; font-size: 1em; }
-            #habilidades ul li { padding: 10px 18px; font-size: 0.95em; }
-            .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            header h1 { font-size: 3.5em; }
+            header p { font-size: 1.5em; }
+            .section h2 { font-size: 2.2em; }
+            .section { padding: 40px; margin-bottom: 40px; }
+            nav ul li a { padding: 18px 25px; font-size: 1em; }
+            #habilidades ul li { padding: 12px 22px; }
+            .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
         }
 
         @media (max-width: 768px) {
-            .container { width: 95%; padding: 30px 0; }
-            header h1 { font-size: 2.5em; letter-spacing: 1px; }
-            header p { font-size: 1.1em; margin: 10px 0 15px; }
-            nav ul { flex-direction: column; align-items: center; }
-            nav ul li { display: block; width: 100%; text-align: center; }
-            nav ul li a { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .container { width: 95%; padding: 40px 10px; }
+            header { padding: 80px 0 30px; }
+            header h1 { font-size: 2.8em; letter-spacing: 1px; }
+            header p { font-size: 1.2em; }
+            nav ul { flex-direction: column; align-items: stretch; /* Estica os itens */ }
+            nav ul li a { padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
             nav ul li:last-child a { border-bottom: none; }
-            .section { padding: 25px; margin-bottom: 25px; }
-            .section h2 { font-size: 1.8em; }
-            #habilidades ul { justify-content: flex-start; } /* Volta a alinhar à esquerda no mobile */
-            .portfolio-grid { grid-template-columns: 1fr; } /* Uma coluna no mobile */
+            nav ul li a::before { content: none; /* Remove efeito sublinhado no mobile */ }
+            .section { padding: 30px; margin-bottom: 30px; }
+            .section h2 { font-size: 2em; }
+            #habilidades ul { justify-content: center; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .contact-info p { flex-direction: column; text-align: center;}
+            .contact-info p i { margin-bottom: 10px; margin-right: 0;}
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 1.8em; }
-            header p { font-size: 0.9em; }
-            .section h2 { font-size: 1.5em; }
-            .section { padding: 20px; }
-            #habilidades ul li { font-size: 0.85em; }
-            .contact-info p { flex-direction: column; align-items: flex-start; text-align: left;}
-            .contact-info p strong { margin-bottom: 5px; margin-right: 0;}
+            header h1 { font-size: 2em; }
+            header p { font-size: 1em; }
+            .section h2 { font-size: 1.6em; }
+            .section { padding: 25px 20px; }
+            #habilidades ul li { font-size: 0.9em; padding: 10px 18px; }
+            .contact-info p { font-size: 1.1em;}
         }
     </style>
 </head>
@@ -610,7 +682,7 @@
 
         const sectionObserver = new IntersectionObserver(fadeInOnScroll, {
             root: null, // Observa a viewport
-            threshold: 0.2 // A seção precisa estar 20% visível para animar
+            threshold: 0.15 // A seção precisa estar 15% visível para animar
         });
 
         sections.forEach(section => {
@@ -620,7 +692,7 @@
         // Adiciona um atraso à animação de entrada de cada card de portfólio
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         portfolioItems.forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.1}s`;
+            item.style.animationDelay = `${index * 0.15}s`; // Aumenta o atraso
         });
 
     </script>
